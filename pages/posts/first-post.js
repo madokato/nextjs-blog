@@ -7,7 +7,7 @@ export default function FirstPost() {
     <h1>最初の投稿</h1>
       <h2>
         <Link href="/">
-          <a>トップページに戻る</a>
+          トップページに戻る
         </Link>
       </h2>
     </>
