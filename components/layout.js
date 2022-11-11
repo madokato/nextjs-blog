@@ -4,10 +4,10 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
-const name = 'Your Name';
+const name = 'Madoka Kato';
 export const siteTitle = 'Next.js Sample Website';
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home }) {  
   return (
     <div className={styles.container}>
       <Head>
@@ -40,7 +40,8 @@ export default function Layout({ children, home }) {
           </>
         ) : (
           <>
-            <Link href="/">
+          
+            <Link href="/" legacyBehavior>
               <a>
                 <Image
                   priority
@@ -53,21 +54,26 @@ export default function Layout({ children, home }) {
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
           </>
         )}
       </header>
+      
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
+          <Link href="/" legacyBehavior>
+            <a>← Back to home</a> 
           </Link>
         </div>
-      )}
+      )}  
     </div>
   );
 }
+
+//他のjsファイルでLayoutで挟んだ部分がchildrenに渡される。
+//{}の中はfor~やif~などの式は書けない。式（booleanやmap)しか書けない
+//childrenにはホームコンポーネントや他のコンポーネントが入る
